@@ -20,7 +20,7 @@ def intro():
     print_pause(f"In your hand you hold your trusty {weapon}.")
 
 
-def valid_input(prompt,option1,option2):
+def valid_input(prompt, option1, option2):
     while True:
         response = input(prompt).lower()
         if response == option1:
