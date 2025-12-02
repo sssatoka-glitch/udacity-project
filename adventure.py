@@ -12,7 +12,9 @@ def print_pause(message):
 
 
 def intro():
-    print_pause("You find yourself standing in an open field, filled with grass and yellow wildflowers." )
+    print_pause(
+        "You find yourself standing in an open field, " \
+        "filled with grass and yellow wildflowers.")
     print_pause(
         f"Rumor has it that a {enemy} is somewhere around here,"
         f"and has been terrifying the nearby village."
@@ -20,7 +22,7 @@ def intro():
     print_pause(f"In your hand you hold your trusty {weapon}.")
 
 
-def valid_input(prompt, option1, option2):
+def valid_input(prompt,option1,option2):
     while True:
         response = input(prompt).lower()
         if response == option1:
@@ -47,25 +49,27 @@ def lose():
         return True
     elif "n" in playagain:
         return False
-    
+
+
 def fight(weapon):
     print_pause(f"Now the {enemy} came against you...!")
     print_pause(f"Would you like to use your weapon {weapon}")
     print_pause("Enter 1 to use.")
     print_pause("Enter 2 not to use, instead fight by yourself.")
     response = valid_input("(Please enter 1 or 2)", "1", "2")
-    if "1" in response: 
+    if "1" in response:
         if random.random() < WIN_CHANCE_WEAPON:
             return win()
         else:
             print_pause(f"Your {weapon} got broken and defeated")
             return lose()
-    elif "2" in response: 
+    elif "2" in response:
         if random.random() < WIN_CHANCE_BAREHAND:
             print_pause("Fantastic! You defeted the enemy by your body!")
             return win()
         else:
             return lose()
+
 
 def where_to():
     print_pause("Enter 1 to knock on the door of the house.")
@@ -77,6 +81,7 @@ def where_to():
     elif "2" in response:
         return cave()
 
+
 def house():
     print_pause(f"You enter the house and found the {enemy}")
     print_pause("Would you like to fight or escape?")
@@ -87,6 +92,7 @@ def house():
         return fight(weapon)
     if "2" in response:
         return field()
+
 
 def field():
     print_pause("Again you find yourself standing in an open field, filled with grass and yellow wildflowers.")
@@ -103,10 +109,10 @@ def cave():
         return fight(weapon)
     if "2" in response:
         return field()
-    
+
 
 def play_one_game():
-    global enemy,weapon
+    global enemy, weapon
     enemies = ['ninja', 'ochimusha', 'pirate', 'geisha', 'bear']
     enemy = random.choice(enemies)
     weapons = ['sord', 'dagger', 'rope', 'magic band']
