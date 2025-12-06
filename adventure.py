@@ -13,7 +13,7 @@ def print_pause(message):
 
 def intro():
     print_pause(
-        "You find yourself standing in an open field, " \
+        "You find yourself standing in an open field, "
         "filled with grass and yellow wildflowers.")
     print_pause(
         f"Rumor has it that a {enemy} is somewhere around here,"
@@ -22,7 +22,7 @@ def intro():
     print_pause(f"In your hand you hold your trusty {weapon}.")
 
 
-def valid_input(prompt,option1,option2):
+def valid_input(prompt, option1, option2):
     while True:
         response = input(prompt).lower()
         if response == option1:
@@ -95,7 +95,8 @@ def house():
 
 
 def field():
-    print_pause("Again you find yourself standing in an open field, filled with grass and yellow wildflowers.")
+    print_pause("Again you find yourself standing in an open field, "
+                "filled with grass and yellow wildflowers.")
     return where_to()
 
 
